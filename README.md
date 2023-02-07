@@ -33,7 +33,15 @@ You can also use a fallback to use when a path doesn't exist
 - you need to give it the set of dynamic values (ex: ids) to be pre-rendered
 - it should also export getStaticProps
 - must have a fallback strategy
--
+
+Fallback strategies
+
+- false
+  if any paths not returned by `getStaticPaths` → redirect to 404 page
+- true
+  if any paths not returned by `getStaticPaths` → render the component anyway and then runs `getStaticProps` to generate a new path and cache it
+- blocking
+  if any paths not returned by `getStaticPaths` → block rendering till new path is generated
 
 ### Server-side rendering
 
